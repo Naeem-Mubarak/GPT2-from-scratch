@@ -1,14 +1,14 @@
 import torch.nn as nn
 import torch
 
-class Embedding(nn.Module):
+class TokenEmbedding(nn.Module):
 
   """
   This class is used to create an embedding layer for the input tokens. It takes in the vocabulary size and the embedding dimension as input and creates an embedding layer using nn.Embedding. The forward method takes in the input tokens and returns the corresponding embeddings.
   """
 
   def __init__(self,vocab_size,embedding_dim):
-    super(Embedding,self).__init__()
+    super(TokenEmbedding,self).__init__()
     self.vocab_size = vocab_size
     self.embedding_dim = embedding_dim
     # embeeding layer
