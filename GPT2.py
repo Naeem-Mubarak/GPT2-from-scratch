@@ -1,8 +1,8 @@
 import torch.nn as nn
 from components.layer_norm import LayerNorm
 from components.embedding import PositionalEmbedding
-from components.embedding import Embedding
-from Transformer_block import TransformerBlock
+from components.embedding import TokenEmbedding
+from components.Transformer_block import TransformerBlock
 
 
 
@@ -24,7 +24,7 @@ class GPT2(nn.Module):
 
     self.final_layer_norm = LayerNorm(self.embedding_dim)
     self.pos_embedding = PositionalEmbedding(self.context_size, self.embedding_dim)
-    self.token_embedding = Embedding(self.vocab_size, self.embedding_dim)
+    self.token_embedding = TokenEmbedding(self.vocab_size, self.embedding_dim)
 
     self.LMHead = nn.Linear(self.embedding_dim, self.vocab_size, bias=False)
 
